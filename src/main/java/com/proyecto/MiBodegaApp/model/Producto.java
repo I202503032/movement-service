@@ -1,11 +1,6 @@
 package com.proyecto.MiBodegaApp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "productos")
@@ -18,6 +13,8 @@ public class Producto {
 	private String imagen;
 	private double precio;
 	private int cantidad;
+
+	@Column(name = "stockMinimo")
 	private Integer stockMinimo; // <- Atributo añadido para control crítico
 
 	@ManyToOne

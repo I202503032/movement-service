@@ -1,93 +1,38 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Mi BodegaApp</title>
-
-
-  <!-- Bootstrap core CSS -->
-     <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
-      <!-- Custom styles for this template -->
-     <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
-
+  <title>MiBodeguita - Iniciar Sesión</title>
+  <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
 </head>
-
 <body>
+<header class="topbar">
+  <div><span class="brand-mark">M</span><div><strong>MiBodeguita</strong><small>Gestión sencilla para tu bodega</small></div></div>
+</header>
+<main class="container">
+  <section class="hero"><p class="eyebrow">CONTROL DE TU NEGOCIO</p><h1>Todo tu inventario, en un solo lugar.</h1><p>Ingresa al sistema para gestionar tus productos y ventas.</p></section>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" th:href="@{/}">Mi BodegaApp</a>
+  <section class="panel login-panel">
+    <div class="panel-heading"><div><p class="eyebrow">ACCESO</p><h2>Iniciar sesión</h2></div><span class="icon-bubble">↗</span></div>
+    <p class="muted">Ingresa con el correo y contraseña de una cuenta registrada en la base de datos.</p>
+    <form th:action="@{/usuario/acceder}" method="post">
+      <label for="email">Correo electrónico</label>
+      <input id="email" name="email" type="email" required autocomplete="username" placeholder="nombre@correo.com">
 
+      <label for="password">Contraseña</label>
+      <input id="password" name="password" type="password" required autocomplete="current-password" placeholder="Tu contraseña">
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" th:href="@{/usuario/login}">Login</a>
-          </li>
-        </ul>
-      </div>    
-    </div>
-  </nav>
-
-
-  <!-- Page Content -->
-  <div class="container">
-
-    <div class="card mb-3">
-      <div class="row no-gutters">
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h2>Ingresar</h2>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-    
-    <form  th:action="@{/usuario/acceder}" method="post">
-      <div class="form-group">
-        <label for="email"> Email:  </label>      
-        <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su email" required autocomplete="off"> 
-
-      </div>
-
-      <div class="form-group">
-        <label for="pwd"> Contraseña:</label>
-        <input type="password"  class="form-control" id="password" name="password" placeholder="Ingrese su contraseña" required>       
-      </div>
-
-      <div class="form-group">
-        <div class="col-sm-2">
-          <button type="submit" class="btn btn-dark"> <span class="glyphicon glyphicon-ok"></span> Ingresar</button>
-        </div>      
-      </div>    
+      <button class="button button-primary full" type="submit">Ingresar</button>
     </form>
-    <a th:href="@{/usuario/registro}" class="card-link">Si aún no tiene cuenta aqui puede registrarse</a>
-  </div>
-  <!-- /.container -->
-
-  <!-- Footer -->
-   <div th:include="usuario/template_usuario.html::footer">
-  
-  </div>
-
-  <!-- Bootstrap core JavaScript -->
-    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-  
+    <p class="hint">La API de autenticación verifica la contraseña mediante BCrypt.</p>
+    <div style="margin-top: 15px; text-align: center;">
+      <a th:href="@{/usuario/registro}" class="card-link" style="font-size: 13px; color: #1c6548; font-weight: 700;">¿Aún no tienes cuenta? Regístrate aquí</a>
+    </div>
+  </section>
+  <footer>MiBodeguita · Proyecto académico · Spring Boot + Thymeleaf + MySQL</footer>
+</main>
 </body>
-
 </html>
+
+
