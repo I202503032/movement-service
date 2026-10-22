@@ -32,7 +32,7 @@ public class Usuario {
    public Usuario() {
 
    }
-
+//usuarios
    public Usuario(Integer id, String nombre, String username, String email, String direccion, String telefono, String tipo,
 		String password) {
 	super();
