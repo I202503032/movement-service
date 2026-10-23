@@ -57,6 +57,7 @@ public class ReporteController {
 
         Row headerRow = sheet.createRow(0);
         String[] columnas = {"ID", "Nombre", "Descripción", "Precio (S/)", "Stock", "Stock Mínimo"};
+        int[] anchos = {8, 30, 40, 14, 10, 14};
 
         CellStyle headerStyle = workbook.createCellStyle();
         Font font = workbook.createFont();
@@ -81,7 +82,7 @@ public class ReporteController {
         }
 
         for (int i = 0; i < columnas.length; i++) {
-            sheet.autoSizeColumn(i);
+            sheet.setColumnWidth(i, anchos[i] * 256);
         }
 
         workbook.write(response.getOutputStream());
